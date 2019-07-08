@@ -31,6 +31,9 @@
     </el-col>
   </el-row>
   </div>
+    <div class="myFooter">
+      人如蜉蝣于大地，朝生暮死
+    </div>
   </div>
 </template>
 <script>
@@ -55,7 +58,7 @@ export default{
   },
   created() {
     var a=[{ title: '手机应用类', product: [{is: true, value: '91助手'}, {is: false, value: '豌豆英'}, {is: false, value: '金山毒霸'}]}, {title: 'pc产品', product: [{is: false, value: 'Webstorm'}, {is: true, value: 'Hbuilder'}, {is: false, value: 'Subline'}, {is: true, value: 'Atom'}]}]
-    var b=[{title: '数据预测', pic: require('../../assets/1.png'),describe: '开放产品是一款开放产品'},{title: '广告发布', pic: require('../../assets/2.png'),describe: '品牌营销帮助你的产品更好的找到定位'},{title: '流量分析', pic: require('../../assets/3.png'),describe: '使命必达快速迭代永远保持最前端的速度'},{title: '数据统计', pic: require('../../assets/4.png'),describe: '帮你勇闯高峰，到达事业的巅峰'}]
+    var b=[{title: '数据预测', pic: require('../../assets/1.png'),describe: '开放产品是一款开放产品',path: '/detail/first'},{title: '广告发布', pic: require('../../assets/2.png'),describe: '品牌营销帮助你的产品更好的找到定位',path: '/detail/two'},{title: '流量分析', pic: require('../../assets/3.png'),describe: '使命必达快速迭代永远保持最前端的速度',path: '/detail/three'},{title: '数据统计', pic: require('../../assets/4.png'),describe: '帮你勇闯高峰，到达事业的巅峰',path: '/detail/four'}]
     this.$axios.get('http://www.wwtliu.com/sxtstu/news/juhenews.php',{params: {
       type: 'top',
       count: '30'
@@ -129,5 +132,12 @@ export default{
 }
   .contentModel{
     margin: 10px 0px 10px 10px;
+  }
+  .myFooter{
+    width: 100%;
+    min-width: 990px;
+    text-align: center;
+    line-height: 100px;
+    background-color: #e3e4e5;
   }
 </style>
