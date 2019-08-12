@@ -13,7 +13,7 @@
     data() {
       return {
         showlate: '',
-        show: true
+        show: false
       }
     },
     props: {
@@ -34,6 +34,14 @@
       cli(e) {
         this.showlate=this.type[e].title
         this.show=false
+        if(e==0){
+          this.$emit('place',200)
+        }
+        else if(e==1){
+          this.$emit('place',350)
+        }else {
+          this.$emit('place',500)
+        }
       },
       cli1() {
         if(this.show==false){
@@ -62,6 +70,7 @@
   border-top: none;
   width: 100%;
   left: -1px;
+  background-color: #FFFFFF;
 }
   .box-menu-ul li span{
     display: inline-block;

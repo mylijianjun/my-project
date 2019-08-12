@@ -3,10 +3,10 @@
     <div class="box-head-ax">
       <h2>蛋糕美食</h2>
       <p>蛋糕花样丰富多彩，造型百变，味道也总是给我们带来惊喜，不过世界上最著名的10大蛋糕，你知道多有哪些吗？下面就让我们大开眼界吧。</p>
-      <div>购买数量 : <Count :maxSum="limit.max" :minSum="limit.min"/></div>
-      <div>产品类型 : <MySelect :type="type"/></div>
-      <div>有效时间 :</div>
-      <div>总价 :</div>
+      <div>购买数量 : <Count :maxSum="limit.max" :minSum="limit.min" @myCount="myCount1"/></div>
+      <div>产品类型 : <MySelect :type="type" @place="place"/></div>
+      <div>有效时间 : {{ date.year+'/'+date.month+'/'+date.day}}</div>
+      <div>总价 : {{ data2*data1 }}元</div>
     </div>
     <div class="box-foot-ca">
       <h3>黑森林蛋糕</h3>
@@ -33,12 +33,27 @@ export default{
         max:20,
         min:1
       },
-       type: [{title:'初级版',value: 1},{title:'中级版',value: 2},{title:'高级版',value: 3}]
+       type: [{title:'初级版',value: 1},{title:'中级版',value: 2},{title:'高级版',value: 3}],
+       data1: 1,
+       data2: 200,
+       date: {
+         year: new Date().getFullYear(),
+         month: new Date().getMonth()+1,
+         day: new Date().getDate()
+       }
      }
    },
   components: {
     Count,
     MySelect
+  },
+  methods: {
+    myCount1(value){
+      this.data1=value
+    },
+    place(value){
+      this.data2=value
+    }
   }
 }
 </script>

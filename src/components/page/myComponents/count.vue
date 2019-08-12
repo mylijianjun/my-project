@@ -18,11 +18,13 @@ var vm = new Vue({
       add() {
         if(this.sum<this.maxSum){
           this.sum++
+          this.$emit('myCount',this.sum)
         }
       },
       reduce() {
         if(this.sum>this.minSum){
           this.sum--
+          this.$emit('myCount',this.sum)
         }
       },
       admin() {
@@ -33,6 +35,7 @@ var vm = new Vue({
         else if(this.sum<this.minSum){
           this.sum=this.minSum
         }
+        this.$emit('myCount',this.sum)
       }
     },
     props: {
