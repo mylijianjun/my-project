@@ -86,6 +86,7 @@
   line-height: 30px;
   text-align: center;
   color: #FFFFFF;
+  cursor: pointer;
 }
 /*.header-top-box>div:nth-child(2) div:nth-child(3) a{*/
   /*text-decoration: none;*/

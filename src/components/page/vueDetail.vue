@@ -3,7 +3,7 @@
      <div class="active">
        <el-row class="menu" type="flex" >
          <el-col :span="10" class="header">
-           <div><img src="../../assets/logo.png"></div>
+           <div><img src="../../assets/logo.png" @click="imgClick()"></div>
            <div>尚学堂旗下品牌：云数学院[速学堂]百战程序员优效学院线上培训-优效聚名师，学习更有效</div>
          </el-col>
          <el-col :span="14" class="header-one">
@@ -22,7 +22,7 @@
              <li v-for="arr in b"><router-link :to=arr.path tag="li">{{arr.title}}</router-link></li>
            </ul>
         </div>
-        <div><router-view /></div>
+        <div class="active-grr-div"><router-view /></div>
      </div>
      <div class="myFooter">
        人如蜉蝣于大地，朝生暮死
@@ -36,6 +36,11 @@
       return {
          b: [{title: '数据预测', pic: require('../../assets/1.png'),describe: '开放产品是一款开放产品',path: '/detail/first'},{title: '广告发布', pic: require('../../assets/2.png'),describe: '品牌营销帮助你的产品更好的找到定位',path: '/detail/two'},{title: '流量分析', pic: require('../../assets/3.png'),describe: '使命必达快速迭代永远保持最前端的速度',path: '/detail/three'},{title: '数据统计', pic: require('../../assets/4.png'),describe: '帮你勇闯高峰，到达事业的巅峰',path: '/detail/four'}],
          result: JSON.parse(localStorage.getItem('result'))
+      }
+    },
+    methods: {
+      imgClick() {
+        this.$router.push('/')
       }
     }
   }
@@ -100,6 +105,8 @@
   .active-con-dor>div:nth-child(2){
     margin: 10px 10px;
   }
+  .active-fir-div{ width: 20%;}
+  .active-grr-div{ width: 80%; max-width: 770px}
   .active-fir-div>div:nth-child(1){
     height: 150px;
     display: flex;
@@ -109,8 +116,12 @@
   .active-con-dor>div:nth-child(1) ul{
      list-style: none;
   }
-  .active-con-dor>div:nth-child(1) ul li{
-    margin: 10px 10px;
+  .active-con-dor>div:nth-child(1) ul>li>li{
+    padding: 10px 10px;
+  }
+  .active-con-dor>div:nth-child(1) ul>li>li:hover{
+    color: #ffffff;
+    background-color: #00ff00;
   }
   .active-img-str{
     border-radius: 50px;
@@ -122,5 +133,9 @@
     line-height: 100px;
     background-color: #e3e4e5;
     clear: both;
+  }
+  .router-link-active{
+    color: #ffffff;
+    background-color: green;
   }
 </style>
